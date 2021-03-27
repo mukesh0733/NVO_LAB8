@@ -11,7 +11,7 @@ a)	Automate its BGP configuration to peer with the SDN controller in the next ob
   - Automate its BGP speaker configuration to peer with Quagga/FRR.
 
 -----
-###### Main.py:
+## Main.py:
 
 The main python file will import all the modules simulatenouly. We can modify the main file to run as more interactively(user imput for specific modules if required).
 The scope of this lab was sequential. The input of the main module is given as NSOT like this, which can be again modified or gievn at the run time if needed. Before running
@@ -137,8 +137,3 @@ we just need to do a start/stop of the container to make into effect this change
 
 - Docker ps:
 ![image](https://user-images.githubusercontent.com/71536049/112733009-0797e100-8f03-11eb-835c-5d3b3f1046ba.png)
-
-
-
-
-
