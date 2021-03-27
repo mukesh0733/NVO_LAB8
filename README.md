@@ -24,8 +24,12 @@ network_data(manually provided to the main.py) =
                 'SDN-LAB8-net2': {'ip': '16.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}, 
                 'SDN-LAB8-net3': {'ip': '17.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}}
 
-Network_data at run time:
+Network_data at start:
 ![image](https://user-images.githubusercontent.com/71536049/112732424-7e32df80-8eff-11eb-9c17-2161645007ab.png)
+
+Updated Network_data:
+![image](https://user-images.githubusercontent.com/71536049/112732645-c30b4600-8f00-11eb-914a-89e162bf4f61.png)
+
 
 -------
 Objective:1:Create_vn:
@@ -73,6 +77,10 @@ we just need to do a start/stop of the container to make into effect this change
 - Now the tool will take this already created 'frr.conf' file and map to the new running container.
 - At the end showing varius bgp commands for the neighborship and the network details. 
 -  Error handling at various steps.
+![image](https://user-images.githubusercontent.com/71536049/112732753-6e1bff80-8f01-11eb-8516-bd6b5dbd303b.png)
+
+![image](https://user-images.githubusercontent.com/71536049/112732762-7f650c00-8f01-11eb-893e-8b458bab7210.png)
+
 
 Objective:5:Create_ryu_bgp:
 - In this objective, there was a paramiko issue, The container was not ables to install paramiko files. So commented the ssh part in the application.py and created a new base image for this objective. 
@@ -81,5 +89,29 @@ Objective:5:Create_ryu_bgp:
 - The tool will take this ryu_bgp.py file and will create a new conatiner. 
 - Now the tool will start the ryu_bgp application with the already provided config file. 
 - Error handling at various steps.
+![image](https://user-images.githubusercontent.com/71536049/112732776-9572cc80-8f01-11eb-9362-f03e3f536272.png)
+
+------
+
+Verifications:
+![image](https://user-images.githubusercontent.com/71536049/112732821-eaaede00-8f01-11eb-8e43-0a548a43e33a.png)
+![image](https://user-images.githubusercontent.com/71536049/112732837-ff8b7180-8f01-11eb-8470-e0b96bc75778.png)
+![image](https://user-images.githubusercontent.com/71536049/112732844-0c0fca00-8f02-11eb-8e52-d6c2f1e8c8f0.png)
+![image](https://user-images.githubusercontent.com/71536049/112732858-1f229a00-8f02-11eb-9487-111f87135671.png)
+![image](https://user-images.githubusercontent.com/71536049/112732864-31043d00-8f02-11eb-9e13-f6cbf94a0d93.png)
+![image](https://user-images.githubusercontent.com/71536049/112732882-47aa9400-8f02-11eb-9ea5-ab4d622ba357.png)
+
+Docker ps:
+![image](https://user-images.githubusercontent.com/71536049/112733009-0797e100-8f03-11eb-835c-5d3b3f1046ba.png)
+
+
+![image](https://user-images.githubusercontent.com/71536049/112732888-55f8b000-8f02-11eb-82e7-11f7b58aa923.png)
+![image](https://user-images.githubusercontent.com/71536049/112732924-79bbf600-8f02-11eb-81fc-ae4095e7fb9d.png)
+![image](https://user-images.githubusercontent.com/71536049/112732971-d15a6180-8f02-11eb-89e4-8b584fcb559d.png)
+![image](https://user-images.githubusercontent.com/71536049/112732994-f18a2080-8f02-11eb-821e-55772df51766.png)
+
+
+
+
 
 
