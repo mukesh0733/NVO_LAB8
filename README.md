@@ -16,7 +16,7 @@ a)	Automate its BGP configuration to peer with the SDN controller in the next ob
 The main python file will import all the modules simulatenouly. We can modify the main file to run as more interactively (user imput for specific modules if required).
 The scope of this lab was sequential. The input of the main module is given as NSOT, which can be again modified or gievn at the run time if needed in future. 
 
-Before running this script, user need to do execute following commands in the devstack directory under the stack user of the openstack or user can import the .sh file downloaded form the personal openstack webpage. This lab is being execute on the hardware (Lab equipment), Commands needs to be executed are as:
+Before running this script, following commands needs to be execute in the devstack directory under the stack user of the openstack or user can import the .sh file downloaded form the personal openstack webpage. This lab is being execute on the hardware (Lab equipment), Commands needs to be executed are as:
 - source openrc
 - export | grep _os
 
