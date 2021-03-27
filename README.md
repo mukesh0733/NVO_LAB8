@@ -11,6 +11,8 @@ a)	Automate its BGP configuration to peer with the SDN controller in the next ob
   - Automate its BGP speaker configuration to peer with Quagga/FRR.
 
 -----
+Main.py:
+
 The main python file will import all the modules simulatenouly. We can modify the main file to run as more interactively(user imput for specific modules if required).
 The scope of this lab was sequential. The input of the main module is given as NSOT like this, which can be again modified or gievn at the run time if needed. Before running
 this script, user need to do folloing stuff in the devstack directory in the stack user of the openstack or user can import the .sh file downloaded form the openstack webpage.
@@ -44,6 +46,9 @@ Objective:1:Create_vn:
 - Error handing if interfaces are already created or some other issues arises.
 - returned the updated network_data to the main module.
 
+----
+
+
 Objective:2:Create_vm:
 - The main module will now calls the create_vm module with the updated network_data details. 
 
@@ -55,6 +60,8 @@ Objective:2:Create_vm:
 
 - Here only the virtual networks are getting changed while creating a new vm. All other variables are hard-coded to the dafault values such as flavour,image-name, key-name and etc. It can be modified depending upon the requirments. 
 - Error handing at various steps.
+
+-----
 
 Objective:3:Create_sec_group:
 - The main module will now calls the create_sec_group module with the updated network_data details. 
@@ -69,6 +76,8 @@ Objective:3:Create_sec_group:
 
 - Error handling at various steps.
 
+-----
+
 Objective:4:Create_frr_bgp:
 - Already created a base image first for this. In the base imagem the bgpd module enabled. if we do not want to make a base image then,
 we just need to do a start/stop of the container to make into effect this change then.
@@ -81,6 +90,7 @@ we just need to do a start/stop of the container to make into effect this change
 
 ![image](https://user-images.githubusercontent.com/71536049/112732762-7f650c00-8f01-11eb-893e-8b458bab7210.png)
 
+-------
 
 Objective:5:Create_ryu_bgp:
 - In this objective, there was a paramiko issue, The container was not ables to install paramiko files. So commented the ssh part in the application.py and created a new base image for this objective. 
@@ -120,10 +130,8 @@ Verifications:
 ![image](https://user-images.githubusercontent.com/71536049/112732971-d15a6180-8f02-11eb-89e4-8b584fcb559d.png)
 ![image](https://user-images.githubusercontent.com/71536049/112732994-f18a2080-8f02-11eb-821e-55772df51766.png)
 
-
 Connectivity check:
 ![image](https://user-images.githubusercontent.com/71536049/112733237-4da17480-8f04-11eb-93e8-db4be412925e.png)
-
 
 - Docker ps:
 ![image](https://user-images.githubusercontent.com/71536049/112733009-0797e100-8f03-11eb-835c-5d3b3f1046ba.png)
