@@ -17,32 +17,52 @@ this script, user need to do folloing stuff in the devstack directory in the sta
 - source openrc
 - export | grep _os
 
-network_data = 
-                
+-------
+
+network_data(manually provided to the main.py) = 
                 {'SDN-LAB8-net1': {'ip': '15.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}, 
-                
                 'SDN-LAB8-net2': {'ip': '16.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}, 
-                
                 'SDN-LAB8-net3': {'ip': '17.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}}
+
+Network_data at run time:
+![image](https://user-images.githubusercontent.com/71536049/112732424-7e32df80-8eff-11eb-9c17-2161645007ab.png)
+
 -------
 Objective:1:Create_vn:
+
 - The main module will call the create_vn module with already defined network_data. and will create all the given subnet and then update the original network_data details. 
+![image](https://user-images.githubusercontent.com/71536049/112732502-eed9fc00-8eff-11eb-867d-e35c26980737.png)
+
 - Created a Public router and then attached all those created interfaces in it.
+![image](https://user-images.githubusercontent.com/71536049/112732507-fa2d2780-8eff-11eb-9f41-dacd4d5c253e.png)
+
 - Error handing if interfaces are already created or some other issues arises.
 - returned the updated network_data to the main module.
 
 Objective:2:Create_vm:
 - The main module will now calls the create_vm module with the updated network_data details. 
+
 - Now it will create individual 1-VM for all indiviual virtual networks and one vm which will have all the virtual networks. 
-- Cretateing the loating ip, attaching them to individual ips and then updated this floating ip information to the global network_data.
+![image](https://user-images.githubusercontent.com/71536049/112732528-1f219a80-8f00-11eb-9205-346d49c30c83.png)
+
+- Creating the floating ip, attaching them to individual ips and then updated this floating ip information to the global network_data.
+![image](https://user-images.githubusercontent.com/71536049/112732542-33fe2e00-8f00-11eb-89e8-ca4f91f39dee.png)
+
 - Here only the network details are getting changed while creating a new vm. All other variables are hard-coded to the dafault values such as flavour,image-name, key-name. 
 it can be later modified depending upon the requirments. 
 - Error handing at various steps.
 
 Objective:3:Create_sec_group:
 - The main module will now calls the create_sec_group module with the updated network_data details. 
-- It will create a new sec_gorup and add the ICMP allow rules for given virtual networks.
+- It will create a new sec_gorup with the default rules.
+![image](https://user-images.githubusercontent.com/71536049/112732564-5b54fb00-8f00-11eb-8326-6b904762f2bf.png)
+
+- Now the tool will add the ICMP allow rules for given virtual networks.
+![image](https://user-images.githubusercontent.com/71536049/112732579-6c9e0780-8f00-11eb-841b-27b9d047c963.png)
+
 - Now it will apply this sec_group to the already created virtual machines in the objective2.
+![image](https://user-images.githubusercontent.com/71536049/112732588-7de71400-8f00-11eb-9959-d37bac8c5d5a.png)
+
 - Error handling at various steps.
 
 Objective:4:Create_frr_bgp:
