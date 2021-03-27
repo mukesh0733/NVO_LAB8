@@ -111,6 +111,10 @@ Docker ps:
 ![image](https://user-images.githubusercontent.com/71536049/112732994-f18a2080-8f02-11eb-821e-55772df51766.png)
 
 
+Connectivity check:
+![image](https://user-images.githubusercontent.com/71536049/112733237-4da17480-8f04-11eb-93e8-db4be412925e.png)
+
+
 
 
 
