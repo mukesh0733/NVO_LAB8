@@ -106,13 +106,16 @@ we just need to do a start/stop of the container to make into effect this change
 # Verifications:
 - Virtual networks:
 ![image](https://user-images.githubusercontent.com/71536049/112732821-eaaede00-8f01-11eb-8e43-0a548a43e33a.png)
+--
 
 - Virtual public router and the subent details:
 ![image](https://user-images.githubusercontent.com/71536049/112732837-ff8b7180-8f01-11eb-8470-e0b96bc75778.png)
 ![image](https://user-images.githubusercontent.com/71536049/112732844-0c0fca00-8f02-11eb-8e52-d6c2f1e8c8f0.png)
+--
 
 - Individual Virtual machines
 ![image](https://user-images.githubusercontent.com/71536049/112732858-1f229a00-8f02-11eb-9487-111f87135671.png)
+--
 
 - Floatinp ip list:
 ![image](https://user-images.githubusercontent.com/71536049/112732864-31043d00-8f02-11eb-9e13-f6cbf94a0d93.png)
@@ -130,7 +133,7 @@ we just need to do a start/stop of the container to make into effect this change
 ![image](https://user-images.githubusercontent.com/71536049/112732971-d15a6180-8f02-11eb-89e4-8b584fcb559d.png)
 ![image](https://user-images.githubusercontent.com/71536049/112732994-f18a2080-8f02-11eb-821e-55772df51766.png)
 
-Connectivity check:
+- Connectivity check:
 ![image](https://user-images.githubusercontent.com/71536049/112733237-4da17480-8f04-11eb-93e8-db4be412925e.png)
 
 - Docker ps:
