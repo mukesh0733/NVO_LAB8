@@ -50,11 +50,10 @@ Objective:2:Create_vm:
 - Now it will create individual 1-VM for all indiviual virtual networks and one vm which will have all the virtual networks. 
 ![image](https://user-images.githubusercontent.com/71536049/112732528-1f219a80-8f00-11eb-9205-346d49c30c83.png)
 
-- Creating the floating ip, attaching them to individual ips and then updated this floating ip information to the global network_data.
+- Creating the floating ip, attaching them to individual vms and then updated this floating ip information to the global network_data.
 ![image](https://user-images.githubusercontent.com/71536049/112732542-33fe2e00-8f00-11eb-89e8-ca4f91f39dee.png)
 
-- Here only the network details are getting changed while creating a new vm. All other variables are hard-coded to the dafault values such as flavour,image-name, key-name. 
-it can be later modified depending upon the requirments. 
+- Here only the virtual networks are getting changed while creating a new vm. All other variables are hard-coded to the dafault values such as flavour,image-name, key-name and etc. It can be modified depending upon the requirments. 
 - Error handing at various steps.
 
 Objective:3:Create_sec_group:
@@ -65,13 +64,13 @@ Objective:3:Create_sec_group:
 - Now the tool will add the ICMP allow rules for given virtual networks.
 ![image](https://user-images.githubusercontent.com/71536049/112732579-6c9e0780-8f00-11eb-841b-27b9d047c963.png)
 
-- Now it will apply this sec_group to the already created virtual machines in the objective2.
+- Now the tool will apply this sec_group to the already created virtual machines in the objective2.
 ![image](https://user-images.githubusercontent.com/71536049/112732588-7de71400-8f00-11eb-9959-d37bac8c5d5a.png)
 
 - Error handling at various steps.
 
 Objective:4:Create_frr_bgp:
-- Already created a base image first for this. In the base image the bgpd module enabled. if we do not want to make a base image then we can add this step in this objective,
+- Already created a base image first for this. In the base imagem the bgpd module enabled. if we do not want to make a base image then,
 we just need to do a start/stop of the container to make into effect this change then.
 - The main module will now calls the create_frr_bgp module. 
 - The tool will create a frr.conf file with the desired bgp config details. We can read already created files too. Need to to little modification for that.
@@ -95,19 +94,29 @@ Objective:5:Create_ryu_bgp:
 ------
 
 Verifications:
+- Virtual networks:
 ![image](https://user-images.githubusercontent.com/71536049/112732821-eaaede00-8f01-11eb-8e43-0a548a43e33a.png)
+
+- Virtual public router and the subent details:
 ![image](https://user-images.githubusercontent.com/71536049/112732837-ff8b7180-8f01-11eb-8470-e0b96bc75778.png)
 ![image](https://user-images.githubusercontent.com/71536049/112732844-0c0fca00-8f02-11eb-8e52-d6c2f1e8c8f0.png)
+
+- Individual Virtual machines
 ![image](https://user-images.githubusercontent.com/71536049/112732858-1f229a00-8f02-11eb-9487-111f87135671.png)
+
+- Floatinp ip list:
 ![image](https://user-images.githubusercontent.com/71536049/112732864-31043d00-8f02-11eb-9e13-f6cbf94a0d93.png)
+
+- Security gorup:
 ![image](https://user-images.githubusercontent.com/71536049/112732882-47aa9400-8f02-11eb-9ea5-ab4d622ba357.png)
 
-Docker ps:
-![image](https://user-images.githubusercontent.com/71536049/112733009-0797e100-8f03-11eb-835c-5d3b3f1046ba.png)
-
-
+- New updated security group rules:
 ![image](https://user-images.githubusercontent.com/71536049/112732888-55f8b000-8f02-11eb-82e7-11f7b58aa923.png)
+
+- Instance snapshot:
 ![image](https://user-images.githubusercontent.com/71536049/112732924-79bbf600-8f02-11eb-81fc-ae4095e7fb9d.png)
+
+- Topology created via tool:
 ![image](https://user-images.githubusercontent.com/71536049/112732971-d15a6180-8f02-11eb-89e4-8b584fcb559d.png)
 ![image](https://user-images.githubusercontent.com/71536049/112732994-f18a2080-8f02-11eb-821e-55772df51766.png)
 
@@ -115,6 +124,9 @@ Docker ps:
 Connectivity check:
 ![image](https://user-images.githubusercontent.com/71536049/112733237-4da17480-8f04-11eb-93e8-db4be412925e.png)
 
+
+- Docker ps:
+![image](https://user-images.githubusercontent.com/71536049/112733009-0797e100-8f03-11eb-835c-5d3b3f1046ba.png)
 
 
 
