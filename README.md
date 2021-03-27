@@ -13,58 +13,60 @@ a)	Automate its BGP configuration to peer with the SDN controller in the next ob
 -----
 ## Main.py:
 
-The main python file will import all the modules simulatenouly. We can modify the main file to run as more interactively(user imput for specific modules if required).
-The scope of this lab was sequential. The input of the main module is given as NSOT like this, which can be again modified or gievn at the run time if needed. Before running
-this script, user need to do folloing stuff in the devstack directory in the stack user of the openstack or user can import the .sh file downloaded form the openstack webpage.
+The main python file will import all the modules simulatenouly. We can modify the main file to run as more interactively (user imput for specific modules if required).
+The scope of this lab was sequential. The input of the main module is given as NSOT, which can be again modified or gievn at the run time if needed in future. 
+
+Before running this script, user need to do execute following commands in the devstack directory under the stack user of the openstack or user can import the .sh file downloaded form the personal openstack webpage. This lab is being execute on the hardware (Lab equipment), Commands needs to be executed are as:
 - source openrc
 - export | grep _os
 
 -------
 
-network_data(manually provided to the main.py):
+Network_data (Gievn in main.py):
 
                 {'SDN-LAB8-net1': {'ip': '15.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}, 
-                'SDN-LAB8-net2': {'ip': '16.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}, 
-                'SDN-LAB8-net3': {'ip': '17.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}}
+                 'SDN-LAB8-net2': {'ip': '16.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}, 
+                 'SDN-LAB8-net3': {'ip': '17.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}}
 
-Network_data at start:
+Network_data(at start):
 ![image](https://user-images.githubusercontent.com/71536049/112732424-7e32df80-8eff-11eb-9c17-2161645007ab.png)
 
-Updated Network_data:
+Updated Network_data(after execution of the all the modules):
 ![image](https://user-images.githubusercontent.com/71536049/112732645-c30b4600-8f00-11eb-914a-89e162bf4f61.png)
 
 
 -------
 ## Objective: Create_vn:
 
-- The main module will call the create_vn module with already defined network_data. and will create all the given subnet and then update the original network_data details. 
+- First The main module will execute the create_vn module with already defined network_data input. The tool will create all the given subnet, and then update the original network_data details. 
 ![image](https://user-images.githubusercontent.com/71536049/112732502-eed9fc00-8eff-11eb-867d-e35c26980737.png)
 
-- Created a Public router and then attached all those created interfaces in it.
+- After that the tool will create a Public router, and then attach all those created interfaces in the router.
 ![image](https://user-images.githubusercontent.com/71536049/112732507-fa2d2780-8eff-11eb-9f41-dacd4d5c253e.png)
 
 - Error handing if interfaces are already created or some other issues arises.
-- returned the updated network_data to the main module.
+- Returned the updated network_data to the main module.
 
 ----
 
 
 ## Objective: Create_vm:
-- The main module will now calls the create_vm module with the updated network_data details. 
+- The main module will now execute the create_vm module with the updated network_data details. 
 
 - Now it will create individual 1-VM for all indiviual virtual networks and one vm which will have all the virtual networks. 
 ![image](https://user-images.githubusercontent.com/71536049/112732528-1f219a80-8f00-11eb-9205-346d49c30c83.png)
 
-- Creating the floating ip, attaching them to individual vms and then updated this floating ip information to the global network_data.
+- Now tool will create the floating ips, attach them to individual vms and then updated this floating ip information to the global network_data.
 ![image](https://user-images.githubusercontent.com/71536049/112732542-33fe2e00-8f00-11eb-89e8-ca4f91f39dee.png)
 
 - Here only the virtual networks are getting changed while creating a new vm. All other variables are hard-coded to the dafault values such as flavour,image-name, key-name and etc. It can be modified depending upon the requirments. 
-- Error handing at various steps.
+- Error handing added at the various steps.
+- Returned the updated network_data to the main module.
 
 -----
 
 ## Objective: Create_sec_group:
-- The main module will now calls the create_sec_group module with the updated network_data details. 
+- The main module will now execute the create_sec_group module with the updated network_data details. 
 - It will create a new sec_gorup with the default rules.
 ![image](https://user-images.githubusercontent.com/71536049/112732564-5b54fb00-8f00-11eb-8326-6b904762f2bf.png)
 
@@ -74,18 +76,18 @@ Updated Network_data:
 - Now the tool will apply this sec_group to the already created virtual machines in the objective2.
 ![image](https://user-images.githubusercontent.com/71536049/112732588-7de71400-8f00-11eb-9959-d37bac8c5d5a.png)
 
-- Error handling at various steps.
+- Error handling added at the various steps.
 
 -----
 
 ## Objective: Create_frr_bgp:
-- Already created a base image first for this. In the base imagem the bgpd module enabled. if we do not want to make a base image then,
-we just need to do a start/stop of the container to make into effect this change then.
-- The main module will now calls the create_frr_bgp module. 
-- The tool will create a frr.conf file with the desired bgp config details. We can read already created files too. Need to to little modification for that.
-- Now the tool will take this already created 'frr.conf' file and map to the new running container.
-- At the end showing varius bgp commands for the neighborship and the network details. 
--  Error handling at various steps.
+- Already created a base image first for frr first. In the base imagem the bgpd module needs to be enabled. If we do not want to make a base image then,
+we just need to do a start/stop of the created container, to apply this change.
+- The main module will now execute the create_frr_bgp module. 
+- The tool will create a frr.conf file with the desired bgp config details. We can read already created files too. Need to to little modification for that in future if requires.
+- Now the tool will take this already created 'frr.conf' file, and create a new container. 
+- At the end, showing varius bgp commands for the neighborship and the network details. 
+- Error handling added at the various steps.
 ![image](https://user-images.githubusercontent.com/71536049/112732753-6e1bff80-8f01-11eb-8516-bd6b5dbd303b.png)
 
 ![image](https://user-images.githubusercontent.com/71536049/112732762-7f650c00-8f01-11eb-893e-8b458bab7210.png)
@@ -93,17 +95,17 @@ we just need to do a start/stop of the container to make into effect this change
 -------
 
 ## Objective: Create_ryu_bgp:
-- In this objective, there was a paramiko issue, The container was not ables to install paramiko files. So commented the ssh part in the application.py and created a new base image for this objective. 
-- The main module will now call the create_ryu_bgp module.
-- Her we need a conf file to run the container. So I already created a ryu_bgp.py with the configurations. We can create a file on the go too, future enhnacements if requires.
+- In this objective, there was a paramiko issue, The container was not ables to install paramiko modules. So commented the ssh part in the application.py and created a new base image for this objective. 
+- The main module will now execute the create_ryu_bgp module.
+- Here we need a conf file to run the container. So I already created a ryu_bgp.py with all the configurations. We can create a file on the go too, future enhnacements if requires.
 - The tool will take this ryu_bgp.py file and will create a new conatiner. 
 - Now the tool will start the ryu_bgp application with the already provided config file. 
-- Error handling at various steps.
+- Error handling added at the various steps.
 ![image](https://user-images.githubusercontent.com/71536049/112732776-9572cc80-8f01-11eb-9362-f03e3f536272.png)
 
 ------
 
-# Verifications:
+# Verifications snapshots:
 - Virtual networks":
 ![image](https://user-images.githubusercontent.com/71536049/112732821-eaaede00-8f01-11eb-8e43-0a548a43e33a.png)
 
