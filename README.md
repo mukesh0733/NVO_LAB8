@@ -1,4 +1,4 @@
-# NVO_LAB8
+##  NVO_LAB8
 Objectives: Virtualized Network Automation
 1)	Automate the creation of multiple virtual networks (VNs) within the hypervisor and their connection to the public network.
 2)	Automate the creation of multiple VMs within the hypervisor-
@@ -11,7 +11,7 @@ a)	Automate its BGP configuration to peer with the SDN controller in the next ob
   - Automate its BGP speaker configuration to peer with Quagga/FRR.
 
 -----
-Main.py:
+# Main.py:
 
 The main python file will import all the modules simulatenouly. We can modify the main file to run as more interactively(user imput for specific modules if required).
 The scope of this lab was sequential. The input of the main module is given as NSOT like this, which can be again modified or gievn at the run time if needed. Before running
@@ -35,7 +35,7 @@ Updated Network_data:
 
 
 -------
-Objective:1:Create_vn:
+# Objective: Create_vn:
 
 - The main module will call the create_vn module with already defined network_data. and will create all the given subnet and then update the original network_data details. 
 ![image](https://user-images.githubusercontent.com/71536049/112732502-eed9fc00-8eff-11eb-867d-e35c26980737.png)
@@ -49,7 +49,7 @@ Objective:1:Create_vn:
 ----
 
 
-Objective:2:Create_vm:
+# Objective: Create_vm:
 - The main module will now calls the create_vm module with the updated network_data details. 
 
 - Now it will create individual 1-VM for all indiviual virtual networks and one vm which will have all the virtual networks. 
@@ -63,7 +63,7 @@ Objective:2:Create_vm:
 
 -----
 
-Objective:3:Create_sec_group:
+# Objective: Create_sec_group:
 - The main module will now calls the create_sec_group module with the updated network_data details. 
 - It will create a new sec_gorup with the default rules.
 ![image](https://user-images.githubusercontent.com/71536049/112732564-5b54fb00-8f00-11eb-8326-6b904762f2bf.png)
@@ -78,7 +78,7 @@ Objective:3:Create_sec_group:
 
 -----
 
-Objective:4:Create_frr_bgp:
+# Objective: Create_frr_bgp:
 - Already created a base image first for this. In the base imagem the bgpd module enabled. if we do not want to make a base image then,
 we just need to do a start/stop of the container to make into effect this change then.
 - The main module will now calls the create_frr_bgp module. 
@@ -92,7 +92,7 @@ we just need to do a start/stop of the container to make into effect this change
 
 -------
 
-Objective:5:Create_ryu_bgp:
+# Objective: Create_ryu_bgp:
 - In this objective, there was a paramiko issue, The container was not ables to install paramiko files. So commented the ssh part in the application.py and created a new base image for this objective. 
 - The main module will now call the create_ryu_bgp module.
 - Her we need a conf file to run the container. So I already created a ryu_bgp.py with the configurations. We can create a file on the go too, future enhnacements if requires.
@@ -103,7 +103,7 @@ Objective:5:Create_ryu_bgp:
 
 ------
 
-Verifications:
+# Verifications:
 - Virtual networks:
 ![image](https://user-images.githubusercontent.com/71536049/112732821-eaaede00-8f01-11eb-8e43-0a548a43e33a.png)
 
