@@ -19,7 +19,8 @@ this script, user need to do folloing stuff in the devstack directory in the sta
 
 -------
 
-network_data(manually provided to the main.py) = 
+network_data(manually provided to the main.py):
+
                 {'SDN-LAB8-net1': {'ip': '15.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}, 
                 'SDN-LAB8-net2': {'ip': '16.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}, 
                 'SDN-LAB8-net3': {'ip': '17.0.0.0/24', 'subnets': '', 'subnets_id': '','floating' : ''}}
