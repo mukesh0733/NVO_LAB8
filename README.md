@@ -143,8 +143,10 @@ we just need to do a start/stop of the created container, to apply this change.
 - FRR bgpd enable:
 ![image](https://user-images.githubusercontent.com/71536049/112870823-d42c9200-907b-11eb-81a8-1736fd642d6b.png)
 
+
 - FRR interface:
 ![image](https://user-images.githubusercontent.com/71536049/112870505-86178e80-907b-11eb-8d5d-5707ec44cc86.png)
+
 
 - FRR BGP neighborship:
 ![image](https://user-images.githubusercontent.com/71536049/112870113-199c8f80-907b-11eb-8be1-f14b8727d8ad.png)
