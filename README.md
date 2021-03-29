@@ -105,7 +105,7 @@ we just need to do a start/stop of the created container, to apply this change.
 
 ------
 
-# Verifications snapshots:
+# Verification snapshots:
 - Virtual networks":
 ![image](https://user-images.githubusercontent.com/71536049/112732821-eaaede00-8f01-11eb-8e43-0a548a43e33a.png)
 
@@ -115,7 +115,7 @@ we just need to do a start/stop of the created container, to apply this change.
 ![image](https://user-images.githubusercontent.com/71536049/112732844-0c0fca00-8f02-11eb-8e52-d6c2f1e8c8f0.png)
 
 
-- Individual Virtual machines
+- Individual Virtual machines:
 ![image](https://user-images.githubusercontent.com/71536049/112732858-1f229a00-8f02-11eb-9487-111f87135671.png)
 
 - Floatinp ip list:
@@ -141,7 +141,7 @@ we just need to do a start/stop of the created container, to apply this change.
 ![image](https://user-images.githubusercontent.com/71536049/112733009-0797e100-8f03-11eb-835c-5d3b3f1046ba.png)
 
 - FRR bgpd enable:
-![image](https://user-images.githubusercontent.com/71536049/112870406-684a2980-907b-11eb-8074-c5a403e5663a.png)
+![image](https://user-images.githubusercontent.com/71536049/112870823-d42c9200-907b-11eb-81a8-1736fd642d6b.png)
 
 - FRR interface:
 ![image](https://user-images.githubusercontent.com/71536049/112870505-86178e80-907b-11eb-8d5d-5707ec44cc86.png)
